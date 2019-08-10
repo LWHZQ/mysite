@@ -6,7 +6,7 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import  User#引入Django默认的用户模型User类
 
-from .models import  UserProfile #增加User模型中没有的字段
+from .models import  UserProfile,UserInfo #增加User模型中没有的字段
 
 #登录用户的表单类
 class LoginForm(forms.Form):
@@ -34,3 +34,15 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model =UserProfile
         fields = ("phone","birth")
+
+
+#用户信息的表单类
+class UserInfoForm(forms.ModelForm):
+    class Meta:
+        model = UserInfo
+        fields =("school","company","profession","address","aboutme")
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields=("email",)

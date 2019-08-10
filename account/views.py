@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate,login
 from . forms import LoginForm,RegistrationForm,UserProfileForm
 
+from django.contrib.auth.decorators import  login_required
+from  .models import UserInfo,UserProfile
+from django.contrib.auth.models import  User
 
 # Create your views here.
 
@@ -43,6 +46,8 @@ def register(request):
             new_profile = userprofile_form.save(commit=False)
             new_profile.user = new_user
             new_profile.save()
+            UserInfo.objects.create(user=new_user)  #保存用户祖册信息的同时，在account_userinfo表写入用户数据
+            UserProfile.objects.create(user=new_user)
             return HttpResponse("success")
         else:
             return HttpResponse("sorry,you can not register")
@@ -50,5 +55,14 @@ def register(request):
         user_form = RegistrationForm()
         userprofile_form = UserProfileForm()
         return render(request,'account/register.html',{"form":user_form,"profile":userprofile_form})
+
+
+
+@login_required(login_url='/account/login') #只有登录的用户才能看到自己的个人信息，没有登陆的用户转到登录界面
+def myself(request):
+    user =User.objects.get(username=request.user.username)
+    userprofile =UserProfile.objects.get(user=user)
+    userinfo = UserInfo.objects.get(user=user)
+    return render(request,"account/myself.html",{"user":user,"userinfo":userinfo,"userprofile":userprofile})
 
 
