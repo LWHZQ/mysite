@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 #: .\account\views.py:28
 msgid "wellcome you.You have been authenticaated successfully"
-msgstr "欢迎您，您已成功登录认证"
+msgstr "歡迎您，您已成功登錄認證"
 
 #: .\account\views.py:30
 msgid "sorry,your username or password is not right"
@@ -26,7 +26,7 @@ msgstr "对不起，您的用户名或密码错误"
 
 #: .\account\views.py:32
 msgid "Invalid login"
-msgstr "无效登录"
+msgstr "對不起，您的用戶名或密碼錯誤"
 
 #: .\account\views.py:57
 msgid "success"
@@ -34,7 +34,7 @@ msgstr "成功"
 
 #: .\account\views.py:59
 msgid "sorry,you can not register"
-msgstr "对不起，您注册失败"
+msgstr "對不起，您註冊失敗"
 
 #: .\templates\header.html:13
 msgid "BLOG"
@@ -46,8 +46,8 @@ msgstr "登出"
 
 #: .\templates\header.html:28
 msgid "Login"
-msgstr "登录"
+msgstr "登錄"
 
 #: .\templates\header.html:29
 msgid "Sign up"
-msgstr "注册"
+msgstr "註冊"
