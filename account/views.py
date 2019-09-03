@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import  login_required
 from  .models import UserInfo,UserProfile
 from django.contrib.auth.models import  User
 
+from django.utils.translation import ugettext as _
+
 
 
 
@@ -23,11 +25,11 @@ def user_login(request):
             user=authenticate(username=cd["username"],password=cd["password"])
             if user:
                 login(request,user)
-                return HttpResponse("wellcome you.You have been authenticaated successfully")
+                return HttpResponse(_("wellcome you.You have been authenticaated successfully"))
             else:
-                return HttpResponse("sorry,your username or password is not right")
+                return HttpResponse(_("sorry,your username or password is not right"))
         else:
-            return  HttpResponse("Invalid login")
+            return  HttpResponse(_("Invalid login"))
 
     if request.method == "GET":
         login_form=LoginForm()
@@ -52,9 +54,9 @@ def register(request):
             new_profile.save()
             UserInfo.objects.create(user=new_user)  #保存用户祖册信息的同时，在account_userinfo表写入用户数据
             UserProfile.objects.create(user=new_user)
-            return HttpResponse("success")
+            return HttpResponse(_("success"))
         else:
-            return HttpResponse("sorry,you can not register")
+            return HttpResponse(_("sorry,you can not register"))
     else:
         user_form = RegistrationForm()
         userprofile_form = UserProfileForm()

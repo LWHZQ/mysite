@@ -1,3 +1,4 @@
+#coding:utf-8
 """
 Django settings for mysite project.
 
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -122,4 +124,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
+)
+
+#在配置文件中添加要国际化的语言
+LANGUAGES = (
+    ('en-us', ('English')),
+    ('zh-hans', ('中文简体')),
+    ('zh-hant', ('中文繁體')),
+)
+
+#配置国际化文件的路径
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
 )
