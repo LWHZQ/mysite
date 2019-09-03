@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-03 10:08+0800\n"
+"POT-Creation-Date: 2019-09-03 14:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "sorry,your username or password is not right"
 
 #: .\account\views.py:32
 msgid "Invalid login"
-msgstr "nvalid login"
+msgstr "Invalid login"
 
 #: .\account\views.py:57
 msgid "success"
@@ -36,18 +36,18 @@ msgstr "success"
 msgid "sorry,you can not register"
 msgstr "sorry,you can not register"
 
-#: .\templates\header.html:13
+#: .\templates\header.html:15
 msgid "BLOG"
 msgstr "BLOG"
 
-#: .\templates\header.html:26
+#: .\templates\header.html:28
 msgid "Logout"
 msgstr "Logout"
 
-#: .\templates\header.html:28
+#: .\templates\header.html:30
 msgid "Login"
 msgstr "Login"
 
-#: .\templates\header.html:29
+#: .\templates\header.html:31
 msgid "Sign up"
 msgstr "Sign up"
