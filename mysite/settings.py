@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'account',
+    'article',
 ]
 
 MIDDLEWARE = [
@@ -107,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE ='zh-hant'
+LANGUAGE_CODE ='zh_hant'
 
 TIME_ZONE = 'UTC'
 
@@ -126,14 +127,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-#在配置文件中添加要国际化的语言
+#å¨éç½®æä»¶ä¸­æ·»å è¦å½éåçè¯­è¨
 LANGUAGES = (
-    ('en-us', ('英文')),
-    ('zh_hans', ('中文简体')),
-    ('zh_hant', ('中文繁體')),
+    ('en-us', ('è±æ')),
+    ('zh_hans', ('ä¸­æç®ä½')),
+    ('zh_hant', ('ä¸­æç¹é«')),
 )
 
-#配置国际化文件的路径
+#éç½®å½éåæä»¶çè·¯å¾
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )

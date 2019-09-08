@@ -25,7 +25,8 @@ def user_login(request):
             user=authenticate(username=cd["username"],password=cd["password"])
             if user:
                 login(request,user)
-                return HttpResponse(_("wellcome you.You have been authenticaated successfully"))
+               # return HttpResponse(_("wellcome you.You have been authenticaated successfully"))
+                return HttpResponseRedirect('/blog/')
             else:
                 return HttpResponse(_("sorry,your username or password is not right"))
         else:
