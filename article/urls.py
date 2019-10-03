@@ -12,4 +12,6 @@ urlpatterns = [
     path('article_list/', views.article_list, name="article_list"),#显示文章列表
     path('article-detail/(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.article_detail, name="article_detail"),#查看文章
     path('del-article/', views.del_article, name="del_article"),#删除文章
+    #path('redit-article/(?P<article_id>\d+)/$', views.redit_article, name="redit_article"),#修改文章
+    path('redit-article/<int:article_id>/', views.redit_article, name="redit_article"),
 ]

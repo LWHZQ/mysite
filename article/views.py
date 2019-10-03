@@ -12,6 +12,7 @@ from django.views.decorators.http import require_POST
 from django.shortcuts import get_object_or_404
 from django.http import  HttpResponse
 
+##栏目
 @login_required(login_url='/account/login/')
 @csrf_exempt
 def article_column(request):
@@ -59,6 +60,7 @@ def del_article_column(request):    #删除栏目
         return HttpResponse("2")
 
 
+##文章
 @login_required(login_url='/account/login/')
 @csrf_exempt
 def article_post(request):          #发布文章
@@ -105,3 +107,27 @@ def del_article(request):    #删除文章
         return HttpResponse("1")
     except:
         return HttpResponse("2")
+
+@login_required(login_url='/account/login/')
+@csrf_exempt
+def redit_article(request,article_id):   #编辑文章
+    if request.method == "GET":
+        article_columns = request.user.article_column.all() #用于显示文章的下拉栏目
+        article = ArticlePost.objects.get(id=article_id)  #用于显示文章的body
+        this_article_form = ArticlePostForm(initial={"title":article.title})
+        this_article_column = article.column   #该文章所属栏目
+
+        return render(request,"article/column/redit_article.html",{"article":article,"article_columns":article_columns,"this_article_form":this_article_form,"this_article_column":this_article_column})
+    else:
+        redit_article = ArticlePost.objects.get(id=article_id)
+        try:
+            redit_article.column = request.user.article_column.get(id=request.POST["column_id"])
+            redit_article.title = request.POST['title']
+            redit_article.body = request.POST["body"]
+            redit_article.save()
+            return HttpResponse(1)
+        except:
+            return HttpResponse(2)
+
+
+
