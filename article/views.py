@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
+from django.shortcuts import get_object_or_404
 from django.http import  HttpResponse
 
 @login_required(login_url='/account/login/')
@@ -60,7 +61,7 @@ def del_article_column(request):    #删除栏目
 
 @login_required(login_url='/account/login/')
 @csrf_exempt
-def article_post(request):
+def article_post(request):          #发布文章
     if request.method == "POST":
         article_post_form = ArticlePostForm(data=request.POST)
         if article_post_form.is_valid():
@@ -80,3 +81,27 @@ def article_post(request):
         article_post_form = ArticlePostForm()
         article_columns = request.user.article_column.all()
         return render(request,"article/column/article_post.html",{"article_post_form":article_post_form,"article_columns":article_columns})
+
+
+@login_required(login_url="/account/login/")
+def article_list(request):  #显示文章
+    articles = ArticlePost.objects.filter(author=request.user)
+    return render(request,"article/column/article_list.html",{"articles":articles})
+
+
+@login_required(login_url="/account/login/")
+def article_detail(request,id,slug):  #文章详情
+    article =get_object_or_404(ArticlePost,id=id,slug=slug)
+    return render(request,"article/column/article_detail.html",{"article":article})
+
+@login_required(login_url='/account/login/')
+@require_POST
+@csrf_exempt
+def del_article(request):    #删除文章
+    article_id = request.POST["article_id"]
+    try:
+        article=ArticlePost.objects.get(id=article_id)
+        article.delete()
+        return HttpResponse("1")
+    except:
+        return HttpResponse("2")
