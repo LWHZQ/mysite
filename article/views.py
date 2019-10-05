@@ -12,6 +12,9 @@ from django.views.decorators.http import require_POST
 from django.shortcuts import get_object_or_404
 from django.http import  HttpResponse
 
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger  #分页
+
+
 ##栏目
 @login_required(login_url='/account/login/')
 @csrf_exempt
@@ -87,8 +90,23 @@ def article_post(request):          #发布文章
 
 @login_required(login_url="/account/login/")
 def article_list(request):  #显示文章
-    articles = ArticlePost.objects.filter(author=request.user)
-    return render(request,"article/column/article_list.html",{"articles":articles})
+    article_list = ArticlePost.objects.filter(author=request.user)
+
+    paginator = Paginator(article_list,8)
+    page = request.GET.get('page')#获取GET请求中的page值
+    print("page:%s" %page)
+    try:
+        current_page = paginator.page(page)#得到指定页面内容
+        articles = current_page.object_list #得到该页面所有的对象列表
+    except PageNotAnInteger:
+        current_page = paginator.page(1)#得到指定页面内容
+        articles = current_page.object_list #得到该页面所有的对象列表
+    except EmptyPage:
+        print("paginator.num_pages:%s" %paginator.num_pages)  #总页数
+        current_page = paginator.page(paginator.num_pages)#得到指定页面内容
+        articles = current_page.object_list #得到该页面所有的对象列表
+
+    return render(request,"article/column/article_list.html",{"articles":articles,"page":current_page})
 
 
 @login_required(login_url="/account/login/")
