@@ -54,7 +54,6 @@ def register(request):
             new_profile.user = new_user
             new_profile.save()
             UserInfo.objects.create(user=new_user)  #保存用户祖册信息的同时，在account_userinfo表写入用户数据
-            UserProfile.objects.create(user=new_user)
             #return HttpResponse(_("success"))
             #return HttpResponseRedirect(settings.LOGIN_URL)
             return HttpResponseRedirect(reverse("account:user_login"))
