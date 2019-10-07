@@ -16,6 +16,7 @@ urlpatterns = [
     path('redit-article/<int:article_id>/', views.redit_article, name="redit_article"),
 
     ##游客行为，不用检查登录
-    path('list-article-titles/', list_views.article_titles, name="article_titles"),#文章展示
+    path('list-article-titles/', list_views.article_titles, name="article_titles"),#所有文章展示
     path('list-article-detail/(?P<id>\d+)/(?P<slug>[-\w]+)/$', list_views.article_detail, name="list_article_detail"),#查看文章
+    path('list-article-titles/(?P<username>[-\w]+)/$', list_views.article_titles, name="author_articles"),#个人名下文章显示
 ]

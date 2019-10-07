@@ -10,8 +10,8 @@ from  .models import UserInfo,UserProfile
 from django.contrib.auth.models import  User
 
 from django.utils.translation import ugettext as _
-
-
+from django.conf import settings
+from django.urls import resolvers,reverse
 
 
 # Create your views here.
@@ -26,7 +26,7 @@ def user_login(request):
             if user:
                 login(request,user)
                # return HttpResponse(_("wellcome you.You have been authenticaated successfully"))
-                return HttpResponseRedirect('/blog/')
+                return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
             else:
                 return HttpResponse(_("sorry,your username or password is not right"))
         else:
@@ -55,7 +55,9 @@ def register(request):
             new_profile.save()
             UserInfo.objects.create(user=new_user)  #保存用户祖册信息的同时，在account_userinfo表写入用户数据
             UserProfile.objects.create(user=new_user)
-            return HttpResponse(_("success"))
+            #return HttpResponse(_("success"))
+            #return HttpResponseRedirect(settings.LOGIN_URL)
+            return HttpResponseRedirect(reverse("account:user_login"))
         else:
             return HttpResponse(_("sorry,you can not register"))
     else:

@@ -12,7 +12,9 @@
 
         <div>
             <ul class="nav navbar-nav" role="navigation">
+                <li><a href="{% url 'home' %}">主页</a></li>
                 <li><a href="{% url 'blog:blog_title' %}">{% trans "BLOG" %}</a></li>
+                <li><a href="{% url 'article:article_titles' %}">文章</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
@@ -29,7 +31,7 @@
                 </li>
                 <li><a href="{% url 'account:user_logout' %}">{%  trans "Logout" %}</a></li>
                 {% else %}
-                <li><a href="{% url 'account:user_login' %}">{%  trans "Login" %}</a></li>
+                    <li><a href="{% url 'account:user_login' %}">{%  trans "Login" %}</a></li>
                     <li><a href="{% url 'account:user_register' %}">{%  trans "Sign up" %}</a></li>
                 {% endif %}
 	        </ul>

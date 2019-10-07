@@ -13,5 +13,5 @@ class ArticleColumnForm(forms.ModelForm):
 #发布与显示文章表单类
 class ArticlePostForm(forms.ModelForm):
     class Meta:
-        model = ArticlePost
-        fields = ("title","body")
+        model = ArticlePost  #说明表单中各个字段来源
+        fields = ("title","body")  #本表单类中用到的字段

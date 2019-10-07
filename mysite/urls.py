@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 
+from django.views.generic import  TemplateView
+
 urlpatterns = [
     url(r'admin/', admin.site.urls),
     path(r'blog/', include(('blog.urls', 'blog'), namespace='blog')),
     path(r'account/', include(('account.urls', 'account'), namespace='account')),
     path(r'article/', include(('article.urls','article'),namespace='article')),
+    path(r'home/', TemplateView.as_view(template_name="home.html"),name="home"),
 
 
 ]

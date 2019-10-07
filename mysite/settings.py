@@ -139,6 +139,10 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
+LOGIN_REDIRECT_URL = '/home/'
+LOGIN_URL = '/account/login/'
+
+
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_HOST_USER = "2492893831@qq.com"
 EMAIL_HOST_PASSWORD = "yqrnymonbgvlebhh"  #授权码
