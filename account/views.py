@@ -26,7 +26,7 @@ def user_login(request):
             if user:
                 login(request,user)
                # return HttpResponse(_("wellcome you.You have been authenticaated successfully"))
-                return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
+                return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)#登陆后跳转主页
             else:
                 return HttpResponse(_("sorry,your username or password is not right"))
         else:

@@ -25,8 +25,9 @@ class  ArticlePost(models.Model):
     slug = models.SlugField(max_length=500)
     column = models.ForeignKey(ArticleColumn,related_name="article_column",on_delete=models.CASCADE)
     body = models.TextField()
-    created = models.DateTimeField(default=timezone.now())
+    created = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
+    users_like = models.ManyToManyField(User,related_name="articles_like" ,blank=True)
 
     class Meta:
         ordering = ("title",)  #排序
