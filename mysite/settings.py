@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'blog',
     'account',
     'article',
+    'image',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -127,14 +129,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-#å¨éç½®æä»¶ä¸­æ·»å è¦å½éåçè¯­è¨
+#语言
 LANGUAGES = (
-    ('en-us', ('è±æ')),
-    ('zh_hans', ('ä¸­æç®ä½')),
-    ('zh_hant', ('ä¸­æç¹é«')),
+    ('en-us', ('英文')),
+    ('zh_hans', ('简体中文')),
+    ('zh_hant', ('繁体中文')),
 )
 
-#éç½®å½éåæä»¶çè·¯å¾
+#翻译语言路径
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
@@ -151,3 +153,6 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "2492893831@qq.com"
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') #相对项目根目录的文件保存地址

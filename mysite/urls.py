@@ -19,12 +19,17 @@ from django.conf.urls import url, include
 
 from django.views.generic import  TemplateView
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'admin/', admin.site.urls),
     path(r'blog/', include(('blog.urls', 'blog'), namespace='blog')),
     path(r'account/', include(('account.urls', 'account'), namespace='account')),
     path(r'article/', include(('article.urls','article'),namespace='article')),
+    path(r'image/',  include(('image.image_urls','image'),namespace='image')),
+
     path(r'home/', TemplateView.as_view(template_name="home.html"),name="home"),
-
-
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
