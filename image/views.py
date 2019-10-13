@@ -26,7 +26,7 @@ def upload_image(request):
         print('*'*20)
         return JsonResponse({'status':"0"})
 
-#展示图片
+#展示个人名下图片
 @login_required(login_url='/account/login/')
 def list_images(request):
     images = Image.objects.filter(user=request.user)
@@ -45,3 +45,9 @@ def del_images(request):
         return JsonResponse({'status':"1"})
     except:
         return JsonResponse({'status':"2"})
+
+#瀑布流方式展示all图片
+def falls_images(request):
+    images = Image.objects.all()
+    return render(request,"image/falls_images.html",{"images":images})
+
