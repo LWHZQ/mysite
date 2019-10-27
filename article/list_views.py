@@ -49,7 +49,17 @@ def article_titles(request,username=None):
 def article_detail(request,id,slug):
     article =get_object_or_404(ArticlePost,id=id,slug=slug)
     total_views = r.incr("article.{}.views".format(article.id))
-    return render(request,"article/list/article_detail.html",{"article":article,"total_views":total_views})
+    print("article.id:%s" %article.id)
+    r.zincrby('article_ranking', 1, article.id)#文章被访问一次，article_rankig就将该文章的id值加1
+
+    article_ranking = r.zrange('article_ranking',0,-1,desc=True)[:10]
+    print("article_ranking:%s" %article_ranking)
+    article_ranking_ids = [int(id) for id in article_ranking]
+    print("article_ranking_ids:%s" %article_ranking_ids)
+    most_viewed = list(ArticlePost.objects.filter(id__in=article_ranking_ids))
+    most_viewed.sort(key=lambda x:article_ranking_ids.index(x.id))
+
+    return render(request,"article/list/article_detail.html",{"article":article,"total_views":total_views,"most_viewed":most_viewed})
 
 #文章点赞
 @csrf_exempt

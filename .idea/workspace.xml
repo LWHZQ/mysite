@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55942f44-b99c-4b9f-aa8e-46bc1e1cc41d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/list/article_detail.html" afterPath="$PROJECT_DIR$/templates/article/list/article_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/article/list_views.py" afterPath="$PROJECT_DIR$/article/list_views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/settings.py" afterPath="$PROJECT_DIR$/mysite/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image/tests.py" afterPath="$PROJECT_DIR$/image/tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mysite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,27 +38,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list_views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="list_views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/article/list_views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.20994475">
+              <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
               <folding>
                 <element signature="e#14#49#0" expanded="true" />
                 <element signature="e#684#1744#0" expanded="false" />
-                <element signature="e#2129#2623#0" expanded="false" />
+                <element signature="e#2662#3156#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article_detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="article_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/article/list/article_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7975831">
-              <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+            <state vertical-scroll-proportion="-3.451613">
+              <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
               <folding>
-                <element signature="n#style#0;n#span#1;n#p#0;n#header#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#header#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,7 +122,6 @@
         <option value="$PROJECT_DIR$/templates/article/column/article_detail.html" />
         <option value="$PROJECT_DIR$/article/urls.py" />
         <option value="$PROJECT_DIR$/templates/article/base.html" />
-        <option value="$PROJECT_DIR$/templates/article/list/article_detail.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/image/models.py" />
         <option value="$PROJECT_DIR$/templates/article/header.html" />
@@ -139,6 +135,7 @@
         <option value="$PROJECT_DIR$/image/tests.py" />
         <option value="$PROJECT_DIR$/image/image_urls.py" />
         <option value="$PROJECT_DIR$/mysite/settings.py" />
+        <option value="$PROJECT_DIR$/templates/article/list/article_detail.html" />
         <option value="$PROJECT_DIR$/article/list_views.py" />
       </list>
     </option>
@@ -194,6 +191,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="article" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="article" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="list" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1001,24 +1052,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/article/list_views.py">
+    <entry file="file://$PROJECT_DIR$/templates/article/list/article_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        <state vertical-scroll-proportion="-3.451613">
+          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
           <folding>
-            <element signature="e#14#49#0" expanded="true" />
-            <element signature="e#684#1744#0" expanded="false" />
-            <element signature="e#2129#2623#0" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#header#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/article/list/article_detail.html">
+    <entry file="file://$PROJECT_DIR$/article/list_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7975831">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.20994475">
+          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
           <folding>
-            <element signature="n#style#0;n#span#1;n#p#0;n#header#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#14#49#0" expanded="true" />
+            <element signature="e#684#1744#0" expanded="false" />
+            <element signature="e#2662#3156#0" expanded="false" />
           </folding>
         </state>
       </provider>
