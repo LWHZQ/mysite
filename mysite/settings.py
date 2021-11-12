@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE ='zh_hans'
+LANGUAGE_CODE ='en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -130,11 +130,11 @@ STATICFILES_DIRS = (
 )
 
 #语言
-LANGUAGES = (
-    ('en-us', ('英文')),
-    ('zh_hans', ('简体中文')),
-    ('zh_hant', ('繁体中文')),
-)
+LANGUAGES = [
+    ('en-us', _('英文')),
+    ('zh-Hans', _('简体中文')),
+    ('zh-Hant', _('繁体中文')),
+]
 
 #翻译语言路径
 LOCALE_PATHS = (
