@@ -23,7 +23,7 @@ jobs:
       run: rm -rf ${{github.event.repository.name}}
   
   deploy_redis:
-    needs: image_build
+    # needs: image_build
     strategy:
       matrix:
         servers: [test_ci]   # 选择label为test_ci的runner
@@ -41,6 +41,5 @@ jobs:
     steps:
     - name: Run the Docker image
       run: |
-        docker stop mysite
-        docker rm mysite
+        if [[ -n `docker ps | grep mysite| grep '8000->8000'` ]]; then docker stop mysite; docker rm mysite;fi
         docker run -d --name mysite -p 8000:8000 "$IMAGE_NAME"
