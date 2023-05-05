@@ -1,41 +1,41 @@
 name: Docker Image CI
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 env:
   IMAGE_NAME: mysite:$(date +%s)
-  
+
 jobs:
   image_build:
     strategy:
       matrix:
-        servers: [test_ci]   # 选择label为test_ci的runner
+        servers: [test_ci] # 选择label为test_ci的runner
     runs-on: ${{matrix.servers}}
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $IMAGE_NAME
-      
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
   deploy_nginx:
     needs: image_build
     strategy:
       matrix:
-        servers: [test_ci]   # 选择label为test_ci的runner
+        servers: [test_ci] # 选择label为test_ci的runner
     runs-on: ${{matrix.servers}}
     steps:
-    - name: Run the nginx
-      run: docker run -d --name redis -p 6379:6379 redis  
-      if: -n `docker ps | grep redis| grep '6379->6379'`
-      
+      - name: Run the nginx
+        run: docker run -d --name redis -p 6379:6379 redis
+        if: -n `docker ps | grep redis| grep '6379->6379'`
+
   deploy_mysite:
     needs: [image_build, deploy_nginx]
     strategy:
       matrix:
-        servers: [test_ci]   # 选择label为test_ci的runner
+        servers: [test_ci] # 选择label为test_ci的runner
     runs-on: ${{matrix.servers}}
     steps:
-    - name: Run the Docker image
-      run: docker run -d --name mysite -p 8000:8000 $IMAGE_NAME
-      if: -n `docker ps | grep mysite| grep '8000->8000'`
+      - name: Run the Docker image
+        run: docker run -d --name mysite -p 8000:8000 $IMAGE_NAME
+        if: -n `docker ps | grep mysite| grep '8000->8000'`
