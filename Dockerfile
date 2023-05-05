@@ -21,7 +21,7 @@ RUN apt update \
     && rm -rf /var/cache/apk/* \
     && rm -rf /var/lib/apt/lists/*
     
-
+# 解决容器内中文乱码
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN.UTF-8
 ENV LC_ALL zh_CN.UTF-8
