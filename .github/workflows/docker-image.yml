@@ -40,5 +40,7 @@ jobs:
     runs-on: ${{matrix.servers}}
     steps:
     - name: Run the Docker image
-      run: docker run -d --name mysite -p 8000:8000 "$IMAGE_NAME"
-      # if: -n `docker ps | grep mysite| grep '8000->8000'`
+      run: |
+        docker stop mysite
+        docker rm mysite
+        docker run -d --name mysite -p 8000:8000 "$IMAGE_NAME"
