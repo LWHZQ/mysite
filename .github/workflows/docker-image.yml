@@ -58,8 +58,8 @@ jobs:
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
-        subject: XX-service 线上部署通知
+        subject: mysite-service 部署通知
         to: 1162886013@qq.com
-        body: 已经成功将 ${{github.repository}} 仓库的 ${{github.event.inputs.branchname}} 分支部署到线上，位于 ${{matrix.servers}} 服务器。
+        body: 已经成功将 ${{github.repository}} 仓库的 master分支部署到线上，位于 ${{matrix.servers}} 服务器。
         from: GitHub Actions
         convert_markdown: true
