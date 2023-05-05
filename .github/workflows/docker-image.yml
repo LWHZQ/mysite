@@ -16,7 +16,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $IMAGE_NAME
+      run: |
+        echo "$IMAGE_NAME"
+        docker build . --file Dockerfile --tag "$IMAGE_NAME"
   
   deploy_nginx:
     needs: image_build
@@ -37,5 +39,5 @@ jobs:
     runs-on: ${{matrix.servers}}
     steps:
     - name: Run the Docker image
-      run: docker run -d --name mysite -p 8000:8000 $IMAGE_NAME
+      run: docker run -d --name mysite -p 8000:8000 "$IMAGE_NAME"
       # if: -n `docker ps | grep mysite| grep '8000->8000'`
