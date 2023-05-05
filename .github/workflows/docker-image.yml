@@ -19,6 +19,7 @@ jobs:
       run: docker build . --file Dockerfile --tag $IMAGE_NAME
       
   deploy_nginx:
+    needs: image_build
     strategy:
       matrix:
         servers: [test_ci]   # 选择label为test_ci的runner
