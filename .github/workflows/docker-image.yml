@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
-  IMAGE_NAME: mysite:$(date +%s)
+  IMAGE_NAME: mysite:1.0
   
 jobs:
   image_build:
