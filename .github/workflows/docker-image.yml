@@ -18,7 +18,7 @@ jobs:
     - name: Build the Docker image
       run: |
         echo "$IMAGE_NAME"
-        docker build . --file Dockerfile --tag "$IMAGE_NAME"
+        docker build --file Dockerfile --tag "$IMAGE_NAME" .
   
   deploy_nginx:
     needs: image_build
