@@ -43,6 +43,14 @@ jobs:
       run: |
         if [[ -n `docker ps | grep mysite| grep '8000->8000'` ]]; then docker stop mysite; docker rm mysite;fi
         docker run -d --name mysite -p 8000:8000 "$IMAGE_NAME"
+        
+  send_mail:
+    needs: [deploy_mysite]
+    strategy:
+      matrix:
+        servers: [test_ci]   # 选择label为test_ci的runner
+    runs-on: ${{matrix.servers}}
+    steps:
     - name: Send mail
       uses: dawidd6/action-send-mail@v3
       with:
