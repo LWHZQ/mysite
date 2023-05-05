@@ -19,8 +19,10 @@ jobs:
       run: |
         echo "$IMAGE_NAME"
         docker build --file Dockerfile --tag "$IMAGE_NAME" .
+    - name: Cleanup
+      run: rm -rf ${{github.event.repository.name}}
   
-  deploy_nginx:
+  deploy_redis:
     needs: image_build
     strategy:
       matrix:
@@ -28,11 +30,10 @@ jobs:
     runs-on: ${{matrix.servers}}
     steps:
     - name: Run the nginx
-      run: docker run -d --name redis -p 6379:6379 redis  
-      # if: -n `docker ps | grep redis| grep '6379->6379'`
+      run: if [[ -z `docker ps | grep redis| grep '6379->6379'` ]]; then docker run -d --name redis -p 6379:6379 redis; else echo "exist"; fi
       
   deploy_mysite:
-    needs: [image_build, deploy_nginx]
+    needs: [image_build, deploy_redis]
     strategy:
       matrix:
         servers: [test_ci]   # 选择label为test_ci的runner
